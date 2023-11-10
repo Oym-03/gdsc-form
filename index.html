@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Test Form</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <form
+        id="testForm"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSfn6VzHkEjl3DR0zxxdMwc0iyPFS1GEEPLLUSjQQ8tRtZwbgA/formResponse"
+        method="post"
+      >
+        <!-- Name Field -->
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="entry.170995370"
+            placeholder="Enter your name"
+          />
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="entry.1619596864"
+            placeholder="Enter your email"
+          />
+        </div>
+
+        <!-- Age Field -->
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input
+            type="text"
+            id="age"
+            name="entry.167198377"
+            placeholder="Enter your age"
+          />
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+          <button type="submit" id="submitBtn">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("testForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Prevent default form submission
+
+          var formData = new FormData(this);
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", this.action, true);
+
+          xhr.onload = function () {
+            // The form has been submitted, and the server has responded.
+            // You can check the response here if needed.
+          };
+
+          xhr.onerror = function () {
+            // Handle network error scenario
+            alert("Network error occurred while submitting the form.");
+          };
+
+          xhr.send(formData);
+
+          // Reload the page after the form submission attempt
+          // This will occur regardless of the response from the server
+          window.location.reload();
+        });
+    </script>
+  </body>
+</html>
