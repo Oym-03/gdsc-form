@@ -1,28 +1,10 @@
-// script.js
-document.getElementById('submitForm').addEventListener('click', function() {
-    var formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        telegramUser: document.getElementById('telegramUser').value,
-        department: document.getElementById('department').value,
-        stage: document.getElementById('stage').value
-    };
+// Replace with your web app URL
+const scriptURL = 'https://script.google.com/macros/s/AKfycbz5DSGtJaQcrsCUwtU4QcvvJ7e9CJqdArmYqTeo8VFwkD5xcVkyHKyDhuDhIsPT8VpLbw/exec';
 
-    // Send this data to a server-side script (e.g., PHP or Node.js) using AJAX
-    fetch('saveData.php', {
-        method: 'POST',
-        body: JSON.stringify(formData),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    .then(response => response.text())
-    .then(data => {
-        console.log(data);
-        // Handle response here (e.g., show a success message)
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        // Handle error here
-    });
+document.getElementById('dataForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const form = new FormData(e.target);
+    fetch(scriptURL, { method: 'POST', body: form })
+        .then(response => alert("Success!"))
+        .catch(error => console.error('Error!', error.message));
 });
