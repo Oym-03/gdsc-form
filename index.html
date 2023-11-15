@@ -1,19 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Form Submission to Google Sheets</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-    <form id="dataForm">
-        <input type="text" id="name" name="name" placeholder="Name">
-        <input type="email" id="email" name="email" placeholder="Email">
-        <input type="text" id="telegramUser" name="telegramUser" placeholder="Telegram User">
-        <input type="text" id="department" name="department" placeholder="Department">
-        <input type="text" id="stage" name="stage" placeholder="Stage">
-        <button type="submit">Submit</button>
-    </form>
+/* Add your styling here */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+#dataForm {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type=text], input[type=email] {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkblue;
+}
